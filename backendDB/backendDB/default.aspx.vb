@@ -1,6 +1,6 @@
 ﻿Public Class _default
     Inherits System.Web.UI.Page
-    Dim punchdate As Date
+    Dim punchdate As String
     Dim in1 As String
     Dim in2 As String
     Dim in3 As String
@@ -20,6 +20,9 @@
         out2 = Request.QueryString("out2")
         out3 = Request.QueryString("out3")
         out4 = Request.QueryString("out4")
+        If Not punchdate = "" Then
+            process_save()
+        End If
     End Sub
     Protected Sub process_save()
 
