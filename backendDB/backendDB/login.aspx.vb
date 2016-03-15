@@ -72,6 +72,7 @@ Public Class login
                     authcookie.Values.Add("token", GetHash(Me.TextBox1.Text & Me.TextBox2.Text & Me.TextBox1.Text & "asdfghjkl;'"))
                     authcookie.Expires = (My.Computer.Clock.LocalTime.AddMinutes(15))
                     Response.Cookies.Add(authcookie)
+                    Response.Redirect("http://webhomework.geekkidconsulting.com/iit-timesheet")
                 Else
                     Response.Redirect(redirectsites.Item(GetRandom(0, 20)))
                 End If
