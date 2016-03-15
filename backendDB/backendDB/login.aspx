@@ -11,7 +11,18 @@
     <form id="form1" runat="server">
     <div>
     
+        Please enter your username:<br />
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <br />
+        Please enter your password:<br />
+        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <br />
+        <asp:Button ID="Button1" runat="server" Text="Login" />
+        <br />
+        <br />
+    
     </div>
+        <asp:Button ID="Button2" runat="server" Text="Create test account" />
     </form>
 </body>
 </html>
