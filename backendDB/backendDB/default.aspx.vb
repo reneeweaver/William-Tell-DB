@@ -9,6 +9,10 @@
     Dim out2 As String
     Dim out3 As String
     Dim out4 As String
+    Dim am1 As String
+    Dim am2 As String
+    Dim am3 As String
+    Dim am4 As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         punchdate = Request.QueryString("date")
@@ -20,6 +24,10 @@
         out2 = Request.QueryString("out2")
         out3 = Request.QueryString("out3")
         out4 = Request.QueryString("out4")
+        am1 = Request.QueryString("am1")
+        am2 = Request.QueryString("am2")
+        am3 = Request.QueryString("am3")
+        am4 = Request.QueryString("am4")
         If Not punchdate = "" Then
             process_save()
         End If
