@@ -116,44 +116,62 @@ Public Class _default
         write("date", (savedate.Month & "-" & savedate.Day & "-" & savedate.Year))
         Dim placeholdnum As Integer
         If amin1 = "False" Then
-            placeholdnum = inh1
-            placeholdnum += 12
-            inh1 = placeholdnum
+            If Not inh1 = "" Then
+                placeholdnum = inh1
+                placeholdnum += 12
+                inh1 = placeholdnum
+            End If
         End If
         If amin2 = "False" Then
-            placeholdnum = inh2
-            placeholdnum += 12
-            inh2 = placeholdnum
+            If Not inh2 = "" Then
+                placeholdnum = inh2
+                placeholdnum += 12
+                inh2 = placeholdnum
+            End If
         End If
         If amin3 = "False" Then
-            placeholdnum = inh3
-            placeholdnum += 12
-            inh3 = placeholdnum
+            If Not inh3 = "" Then
+                placeholdnum = inh3
+                placeholdnum += 12
+                inh3 = placeholdnum
+            End If
         End If
         If amin4 = "False" Then
-            placeholdnum = inh4
-            placeholdnum += 12
-            inh4 = placeholdnum
+            If Not inh4 = "" Then
+                placeholdnum = inh4
+                placeholdnum += 12
+                inh4 = placeholdnum
+            End If
         End If
         If amout1 = "False" Then
-            placeholdnum = outh1
-            placeholdnum += 12
-            outh1 = placeholdnum
+            If Not outh1 = "" Then
+                placeholdnum = outh1
+                placeholdnum += 12
+                outh1 = placeholdnum
+            End If
         End If
+
+
         If amout2 = "False" Then
-            placeholdnum = outh2
-            placeholdnum += 12
-            outh2 = placeholdnum
+            If Not outh2 = "" Then
+                placeholdnum = outh2
+                placeholdnum += 12
+                outh2 = placeholdnum
+            End If
         End If
         If amout3 = "False" Then
-            placeholdnum = outh3
-            placeholdnum += 12
-            outh3 = placeholdnum
+            If Not outh3 = "" Then
+                placeholdnum = outh3
+                placeholdnum += 12
+                outh3 = placeholdnum
+            End If
         End If
         If amout4 = "False" Then
-            placeholdnum = outh4
-            placeholdnum += 12
-            outh4 = placeholdnum
+            If Not outh4 = "" Then
+                placeholdnum = outh4
+                placeholdnum += 12
+                outh4 = placeholdnum
+            End If
         End If
 
         write("inh1", inh1)
