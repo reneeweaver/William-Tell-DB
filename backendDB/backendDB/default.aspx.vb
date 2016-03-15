@@ -31,6 +31,8 @@ Public Class _default
     Dim amout3 As String
     Dim amout4 As String
 
+    Dim path As String = ""
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'authenticate to page
         If (Request.Cookies(iitcookiename) IsNot Nothing) Then
@@ -109,7 +111,71 @@ Public Class _default
         Return encPasswordx2
     End Function
     Protected Sub process_save()
+        Dim savedate As Date = punchdate
+        path = (dbpath & usr & "\" & savedate.Month & "-" & savedate.Day & "-" & savedate.Year & "\")
+        write("date", (savedate.Month & "-" & savedate.Day & "-" & savedate.Year))
+        Dim placeholdnum As Integer
+        If amin1 = "False" Then
+            placeholdnum = inh1
+            placeholdnum += 12
+            inh1 = placeholdnum
+        End If
+        If amin2 = "False" Then
+            placeholdnum = inh2
+            placeholdnum += 12
+            inh2 = placeholdnum
+        End If
+        If amin3 = "False" Then
+            placeholdnum = inh3
+            placeholdnum += 12
+            inh3 = placeholdnum
+        End If
+        If amin4 = "False" Then
+            placeholdnum = inh4
+            placeholdnum += 12
+            inh4 = placeholdnum
+        End If
+        If amout1 = "False" Then
+            placeholdnum = outh1
+            placeholdnum += 12
+            outh1 = placeholdnum
+        End If
+        If amout2 = "False" Then
+            placeholdnum = outh2
+            placeholdnum += 12
+            outh2 = placeholdnum
+        End If
+        If amout3 = "False" Then
+            placeholdnum = outh3
+            placeholdnum += 12
+            outh3 = placeholdnum
+        End If
+        If amout4 = "False" Then
+            placeholdnum = outh4
+            placeholdnum += 12
+            outh4 = placeholdnum
+        End If
 
+        write("inh1", inh1)
+        write("inh2", inh2)
+        write("inh3", inh3)
+        write("inh4", inh4)
+        write("outh1", outh1)
+        write("outh2", outh2)
+        write("outh3", outh3)
+        write("outh4", outh4)
+        write("inm1", inm1)
+        write("inm2", inm2)
+        write("inm3", inm3)
+        write("inm4", inm4)
+        write("outm1", outm1)
+        write("outm2", outm2)
+        write("outm3", outm3)
+        write("outm4", outm4)
+        Response.Redirect("http://webhomework.geekkidconsulting.com/iit-timesheet?date=" & punchdate)
+    End Sub
+    Protected Sub write(ByVal file As String, ByVal value As String)
+        My.Computer.FileSystem.WriteAllText((path & file), value, False)
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -139,51 +205,51 @@ Public Class _default
         outm4 = Me.TextBox9.Text.Split(":").GetValue(1)
 
         If Me.DropDownList1.SelectedIndex = 0 Then
-            amin1 = True
+            amin1 = "True"
         Else
-            amin1 = False
+            amin1 = "False"
         End If
 
         If Me.DropDownList3.SelectedIndex = 0 Then
-            amin2 = True
+            amin2 = "True"
         Else
-            amin2 = False
+            amin2 = "False"
         End If
 
         If Me.DropDownList5.SelectedIndex = 0 Then
-            amin3 = True
+            amin3 = "True"
         Else
-            amin3 = False
+            amin3 = "False"
         End If
 
         If Me.DropDownList7.SelectedIndex = 0 Then
-            amin4 = True
+            amin4 = "True"
         Else
-            amin4 = False
+            amin4 = "False"
         End If
 
         If Me.DropDownList2.SelectedIndex = 0 Then
-            amout1 = True
+            amout1 = "True"
         Else
-            amout1 = False
+            amout1 = "False"
         End If
 
         If Me.DropDownList4.SelectedIndex = 0 Then
-            amout2 = True
+            amout2 = "True"
         Else
-            amout2 = False
+            amout2 = "False"
         End If
 
         If Me.DropDownList6.SelectedIndex = 0 Then
-            amout3 = True
+            amout3 = "True"
         Else
-            amout3 = False
+            amout3 = "False"
         End If
 
         If Me.DropDownList8.SelectedIndex = 0 Then
-            amout4 = True
+            amout4 = "True"
         Else
-            amout4 = False
+            amout4 = "False"
         End If
         If Not punchdate = "" Then
             process_save()
