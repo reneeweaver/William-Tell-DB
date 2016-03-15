@@ -84,5 +84,53 @@
 
         outh4 = Me.TextBox9.Text.Split(":").GetValue(0)
         outm4 = Me.TextBox9.Text.Split(":").GetValue(1)
+
+        If Me.DropDownList1.SelectedIndex = 0 Then
+            amin1 = True
+        Else
+            amin1 = False
+        End If
+
+        If Me.DropDownList3.SelectedIndex = 0 Then
+            amin2 = True
+        Else
+            amin2 = False
+        End If
+
+        If Me.DropDownList5.SelectedIndex = 0 Then
+            amin3 = True
+        Else
+            amin3 = False
+        End If
+
+        If Me.DropDownList7.SelectedIndex = 0 Then
+            amin4 = True
+        Else
+            amin4 = False
+        End If
+
+        If Me.DropDownList2.SelectedIndex = 0 Then
+            amout1 = True
+        Else
+            amout1 = False
+        End If
+
+        If Me.DropDownList4.SelectedIndex = 0 Then
+            amout2 = True
+        Else
+            amout2 = False
+        End If
+
+        If Me.DropDownList6.SelectedIndex = 0 Then
+            amout3 = True
+        Else
+            amout3 = False
+        End If
+
+        If Me.DropDownList8.SelectedIndex = 0 Then
+            amout4 = True
+        Else
+            amout4 = False
+        End If
     End Sub
 End Class
