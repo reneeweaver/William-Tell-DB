@@ -17,14 +17,14 @@
     Dim outm2 As String
     Dim outm3 As String
     Dim outm4 As String
-    Dim amin1 As String
-    Dim amin2 As String
-    Dim amin3 As String
-    Dim amin4 As String
-    Dim amout1 As String
-    Dim amout2 As String
-    Dim amout3 As String
-    Dim amout4 As String
+    Dim amin1 As Boolean
+    Dim amin2 As Boolean
+    Dim amin3 As Boolean
+    Dim amin4 As Boolean
+    Dim amout1 As Boolean
+    Dim amout2 As Boolean
+    Dim amout3 As Boolean
+    Dim amout4 As Boolean
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         punchdate = Request.QueryString("date")
@@ -72,5 +72,17 @@
 
         inh4 = Me.TextBox8.Text.Split(":").GetValue(0)
         inm4 = Me.TextBox8.Text.Split(":").GetValue(1)
+
+        outh1 = Me.TextBox3.Text.Split(":").GetValue(0)
+        outm1 = Me.TextBox3.Text.Split(":").GetValue(1)
+
+        outh2 = Me.TextBox5.Text.Split(":").GetValue(0)
+        outm2 = Me.TextBox5.Text.Split(":").GetValue(1)
+
+        outh3 = Me.TextBox7.Text.Split(":").GetValue(0)
+        outm3 = Me.TextBox7.Text.Split(":").GetValue(1)
+
+        outh4 = Me.TextBox9.Text.Split(":").GetValue(0)
+        outm4 = Me.TextBox9.Text.Split(":").GetValue(1)
     End Sub
 End Class
