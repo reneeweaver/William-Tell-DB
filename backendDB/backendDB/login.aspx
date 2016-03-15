@@ -15,7 +15,7 @@
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         <br />
         Please enter your password:<br />
-        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
         <br />
         <asp:Button ID="Button1" runat="server" Text="Login" />
         <br />
