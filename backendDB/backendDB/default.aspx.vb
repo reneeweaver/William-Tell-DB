@@ -5,31 +5,31 @@ Public Class _default
     Dim iitcookiename As String = ("372fd75847c64826d41b24ac512d11803834447a")
     Dim usr As String
 
-    Dim punchdate As String
-    Dim inh1 As String
-    Dim inh2 As String
-    Dim inh3 As String
-    Dim inh4 As String
-    Dim inm1 As String
-    Dim inm2 As String
-    Dim inm3 As String
-    Dim inm4 As String
-    Dim outh1 As String
-    Dim outh2 As String
-    Dim outh3 As String
-    Dim outh4 As String
-    Dim outm1 As String
-    Dim outm2 As String
-    Dim outm3 As String
-    Dim outm4 As String
-    Dim amin1 As String
-    Dim amin2 As String
-    Dim amin3 As String
-    Dim amin4 As String
-    Dim amout1 As String
-    Dim amout2 As String
-    Dim amout3 As String
-    Dim amout4 As String
+    Dim punchdate As String = ""
+    Dim inh1 As String = ""
+    Dim inh2 As String = ""
+    Dim inh3 As String = ""
+    Dim inh4 As String = ""
+    Dim inm1 As String = ""
+    Dim inm2 As String = ""
+    Dim inm3 As String = ""
+    Dim inm4 As String = ""
+    Dim outh1 As String = ""
+    Dim outh2 As String = ""
+    Dim outh3 As String = ""
+    Dim outh4 As String = ""
+    Dim outm1 As String = ""
+    Dim outm2 As String = ""
+    Dim outm3 As String = ""
+    Dim outm4 As String = ""
+    Dim amin1 As String = ""
+    Dim amin2 As String = ""
+    Dim amin3 As String = ""
+    Dim amin4 As String = ""
+    Dim amout1 As String = ""
+    Dim amout2 As String = ""
+    Dim amout3 As String = ""
+    Dim amout4 As String = ""
 
     Dim path As String = ""
 
@@ -180,29 +180,47 @@ Public Class _default
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         punchdate = Me.TextBox1.Text
-        inh1 = Me.TextBox2.Text.Split(":").GetValue(0)
-        inm1 = Me.TextBox2.Text.Split(":").GetValue(1)
+        If Not Me.TextBox2.Text = "" Then
+            inh1 = Me.TextBox2.Text.Split(":").GetValue(0)
+            inm1 = Me.TextBox2.Text.Split(":").GetValue(1)
+        End If
 
-        inh2 = Me.TextBox4.Text.Split(":").GetValue(0)
-        inm2 = Me.TextBox4.Text.Split(":").GetValue(1)
 
-        inh3 = Me.TextBox6.Text.Split(":").GetValue(0)
-        inm3 = Me.TextBox6.Text.Split(":").GetValue(1)
+        If Not Me.TextBox4.Text = "" Then
+            inh2 = Me.TextBox4.Text.Split(":").GetValue(0)
+            inm2 = Me.TextBox4.Text.Split(":").GetValue(1)
+        End If
 
-        inh4 = Me.TextBox8.Text.Split(":").GetValue(0)
-        inm4 = Me.TextBox8.Text.Split(":").GetValue(1)
+        If Not Me.TextBox6.Text = "" Then
+            inh3 = Me.TextBox6.Text.Split(":").GetValue(0)
+            inm3 = Me.TextBox6.Text.Split(":").GetValue(1)
+        End If
 
-        outh1 = Me.TextBox3.Text.Split(":").GetValue(0)
-        outm1 = Me.TextBox3.Text.Split(":").GetValue(1)
+        If Not Me.TextBox8.Text = "" Then
+            inh4 = Me.TextBox8.Text.Split(":").GetValue(0)
+            inm4 = Me.TextBox8.Text.Split(":").GetValue(1)
+        End If
 
-        outh2 = Me.TextBox5.Text.Split(":").GetValue(0)
-        outm2 = Me.TextBox5.Text.Split(":").GetValue(1)
+        If Not Me.TextBox3.Text = "" Then
+            outh1 = Me.TextBox3.Text.Split(":").GetValue(0)
+            outm1 = Me.TextBox3.Text.Split(":").GetValue(1)
+        End If
 
-        outh3 = Me.TextBox7.Text.Split(":").GetValue(0)
-        outm3 = Me.TextBox7.Text.Split(":").GetValue(1)
+        If Not Me.TextBox5.Text = "" Then
+            outh2 = Me.TextBox5.Text.Split(":").GetValue(0)
+            outm2 = Me.TextBox5.Text.Split(":").GetValue(1)
+        End If
 
-        outh4 = Me.TextBox9.Text.Split(":").GetValue(0)
-        outm4 = Me.TextBox9.Text.Split(":").GetValue(1)
+        If Not Me.TextBox7.Text = "" Then
+            outh3 = Me.TextBox7.Text.Split(":").GetValue(0)
+            outm3 = Me.TextBox7.Text.Split(":").GetValue(1)
+        End If
+
+        If Not Me.TextBox9.Text = "" Then
+            outh4 = Me.TextBox9.Text.Split(":").GetValue(0)
+            outm4 = Me.TextBox9.Text.Split(":").GetValue(1)
+        End If
+
 
         If Me.DropDownList1.SelectedIndex = 0 Then
             amin1 = "True"
