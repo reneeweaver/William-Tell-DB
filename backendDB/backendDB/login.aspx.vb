@@ -31,10 +31,13 @@ Public Class login
     End Sub
 
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If Not My.Computer.FileSystem.DirectoryExists(dbpath & Me.TextBox1.Text) Then
-            My.Computer.FileSystem.CreateDirectory(dbpath & Me.TextBox1.Text)
+        If Not ((Me.TextBox1.Text = "") Or (Me.TextBox2.Text = "")) Then
+            If Not My.Computer.FileSystem.DirectoryExists(dbpath & Me.TextBox1.Text) Then
+                My.Computer.FileSystem.CreateDirectory(dbpath & Me.TextBox1.Text)
+            End If
+            My.Computer.FileSystem.WriteAllText((dbpath & Me.TextBox1.Text & "\passhash.txt"), GetHash(Me.TextBox2.Text), False)
         End If
-        My.Computer.FileSystem.WriteAllText((dbpath & Me.TextBox1.Text & "\passhash.txt"), GetHash(Me.TextBox2.Text), False)
+
     End Sub
 
     Private Function GetHash(ByVal password As String) As String
