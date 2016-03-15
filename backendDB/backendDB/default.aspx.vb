@@ -61,6 +61,7 @@
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        punchdate = Me.TextBox1.Text
         inh1 = Me.TextBox2.Text.Split(":").GetValue(0)
         inm1 = Me.TextBox2.Text.Split(":").GetValue(1)
 
@@ -131,6 +132,9 @@
             amout4 = True
         Else
             amout4 = False
+        End If
+        If Not punchdate = "" Then
+            process_save()
         End If
     End Sub
 End Class
