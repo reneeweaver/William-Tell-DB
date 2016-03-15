@@ -1,5 +1,8 @@
 ﻿Public Class _default
     Inherits System.Web.UI.Page
+    Dim dbpath As String = "C:\NewDBs\IIT-Homework\my_iit_timesheet\"
+
+
     Dim punchdate As String
     Dim inh1 As String
     Dim inh2 As String

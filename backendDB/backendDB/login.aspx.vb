@@ -1,6 +1,6 @@
 ﻿Public Class login
     Inherits System.Web.UI.Page
-
+    Dim dbpath As String = "C:\NewDBs\IIT-Homework\my_iit_timesheet\"
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
     End Sub
