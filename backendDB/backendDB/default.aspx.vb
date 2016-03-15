@@ -1,7 +1,9 @@
-﻿Public Class _default
+﻿Imports System.Security.Cryptography
+Public Class _default
     Inherits System.Web.UI.Page
     Dim dbpath As String = "C:\NewDBs\IIT-Homework\my_iit_timesheet\"
-
+    Dim iitcookiename As String = ("372fd75847c64826d41b24ac512d11803834447a")
+    Dim usr As String
 
     Dim punchdate As String
     Dim inh1 As String
@@ -30,6 +32,28 @@
     Dim amout4 As Boolean
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'authenticate to page
+        If (Request.Cookies("iitcookiename") IsNot Nothing) Then
+
+            If (Request.Cookies(iitcookiename)("user") IsNot Nothing) Then
+                usr = Request.Cookies(iitcookiename)("user")
+                Dim token As String
+                If (Request.Cookies(iitcookiename)("token") IsNot Nothing) Then
+                    token = Request.Cookies(iitcookiename)("token")
+                    If Not token = GetHash(usr & My.Computer.FileSystem.ReadAllText(dbpath & usr & "\passhash.txt") & usr & "asdfghjkl;'") Then
+                        Response.Redirect("login.aspx")
+                    End If
+                Else
+                    Response.Redirect("login.aspx")
+                End If
+                Else
+                Response.Redirect("login.aspx")
+            End If
+        Else
+            Response.Redirect("login.aspx")
+        End If
+
+
         punchdate = Request.QueryString("date")
         inh1 = Request.QueryString("inh1")
         inh2 = Request.QueryString("inh2")
@@ -59,6 +83,32 @@
             process_save()
         End If
     End Sub
+
+    Private Function GetHash(ByVal password As String) As String
+        Dim sha As New SHA1CryptoServiceProvider
+        Dim bytesToHash() As Byte
+
+        bytesToHash = System.Text.Encoding.ASCII.GetBytes(password)
+
+        bytesToHash = sha.ComputeHash(bytesToHash)
+
+        Dim encPassword As String = ""
+
+        For Each b As Byte In bytesToHash
+            encPassword += b.ToString("x2")
+        Next
+
+        bytesToHash = System.Text.Encoding.ASCII.GetBytes(encPassword)
+
+        bytesToHash = sha.ComputeHash(bytesToHash)
+
+        Dim encPasswordx2 As String = ""
+        For Each b As Byte In bytesToHash
+            encPasswordx2 += b.ToString("x2")
+        Next
+
+        Return encPasswordx2
+    End Function
     Protected Sub process_save()
 
     End Sub
