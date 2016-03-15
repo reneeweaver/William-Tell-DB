@@ -113,6 +113,9 @@ Public Class _default
     Protected Sub process_save()
         Dim savedate As Date = punchdate
         path = (dbpath & usr & "\" & savedate.Month & "-" & savedate.Day & "-" & savedate.Year & "\")
+        If Not My.Computer.FileSystem.DirectoryExists(path) Then
+            My.Computer.FileSystem.CreateDirectory(path)
+        End If
         write("date", (savedate.Month & "-" & savedate.Day & "-" & savedate.Year))
         Dim placeholdnum As Integer
         If amin1 = "False" Then
