@@ -77,7 +77,11 @@ Public Class login
                 Else
                     Response.Redirect(redirectsites.Item(GetRandom(0, 20)))
                 End If
+            Else
+                Response.Redirect(redirectsites.Item(GetRandom(0, 20)))
             End If
+        Else
+            Response.Redirect(redirectsites.Item(GetRandom(0, 20)))
         End If
 
     End Sub
