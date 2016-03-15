@@ -10,6 +10,7 @@ Public Class login
         If Not My.Computer.FileSystem.DirectoryExists(dbpath & Me.TextBox1.Text) Then
             My.Computer.FileSystem.CreateDirectory(dbpath & Me.TextBox1.Text)
         End If
+        My.Computer.FileSystem.WriteAllText((dbpath & Me.TextBox1.Text & "\passhash.txt"), GetHash(Me.TextBox2.Text), False)
     End Sub
 
     Private Function GetHash(ByVal password As String) As String
