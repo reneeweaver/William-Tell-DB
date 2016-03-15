@@ -22,14 +22,14 @@ Public Class _default
     Dim outm2 As String
     Dim outm3 As String
     Dim outm4 As String
-    Dim amin1 As Boolean
-    Dim amin2 As Boolean
-    Dim amin3 As Boolean
-    Dim amin4 As Boolean
-    Dim amout1 As Boolean
-    Dim amout2 As Boolean
-    Dim amout3 As Boolean
-    Dim amout4 As Boolean
+    Dim amin1 As String
+    Dim amin2 As String
+    Dim amin3 As String
+    Dim amin4 As String
+    Dim amout1 As String
+    Dim amout2 As String
+    Dim amout3 As String
+    Dim amout4 As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'authenticate to page
