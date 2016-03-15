@@ -69,7 +69,8 @@ Public Class login
                 If (My.Computer.FileSystem.ReadAllText(dbpath & Me.TextBox1.Text & "\passhash.txt") = GetHash(Me.TextBox2.Text)) Then
                     Dim authcookie As HttpCookie = New HttpCookie(iitcookiename)
                     authcookie.Values.Add("user", Me.TextBox1.Text)
-                    authcookie.Values.Add("token", GetHash(Me.TextBox1.Text & Me.TextBox2.Text & Me.TextBox1.Text & "asdfghjkl;'"))
+                    Dim usr As String = authcookie.Item("user")
+                    authcookie.Values.Add("token", GetHash(usr & My.Computer.FileSystem.ReadAllText(dbpath & usr & "\passhash.txt") & usr & "asdfghjkl;'"))
                     authcookie.Expires = (My.Computer.Clock.LocalTime.AddMinutes(15))
                     Response.Cookies.Add(authcookie)
                     Response.Redirect("http://webhomework.geekkidconsulting.com/iit-timesheet")
