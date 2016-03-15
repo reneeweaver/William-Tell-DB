@@ -15,12 +15,13 @@
         <br />
         Time in 1:
         <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <asp:DropDownList ID="DropDownList1" runat="server">
+        </asp:DropDownList>
         <br />
         Time out 1:
         <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
         <br />
-        Time in 2:
-        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+        Time in 2: <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
         <br />
         Time out 2:
         <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
