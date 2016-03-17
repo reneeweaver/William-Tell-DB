@@ -74,6 +74,7 @@ Public Class login
                     authcookie.Values.Add("user", Me.TextBox1.Text)
                     Dim usr As String = authcookie.Item("user")
                     authcookie.Values.Add("token", GetHash(usr & My.Computer.FileSystem.ReadAllText(dbpath & usr & "\passhash.txt") & usr & "asdfghjkl;'"))
+                    authcookie.Domain = (".geekkidconsulting.com")
                     authcookie.Expires = (My.Computer.Clock.LocalTime.AddMinutes(15))
                     Response.Cookies.Add(authcookie)
                     Response.Redirect("http://webhomework.geekkidconsulting.com/iit-timesheet")
