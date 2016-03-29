@@ -242,7 +242,7 @@ Public Class _default
 
 
         datacookie.Domain = (".geekkidconsulting.com")
-        datacookie.Expires = (My.Computer.Clock.LocalTime.AddMinutes(5))
+        datacookie.Expires = (My.Computer.Clock.LocalTime.AddMinutes(1))
         Response.Cookies.Add(datacookie)
         Response.Redirect("http://webhomework.geekkidconsulting.com/iit-timesheet/index.php?date=" & punchdate)
     End Sub
@@ -357,7 +357,7 @@ Public Class _default
         write("outm2", outm2)
         write("outm3", outm3)
         write("outm4", outm4)
-        Response.Redirect("http://webhomework.geekkidconsulting.com/iit-timesheet?date=" & punchdate)
+        Response.Redirect("default.aspx?action=pull&date=" & punchdate)
     End Sub
     Protected Sub write(ByVal file As String, ByVal value As String)
         My.Computer.FileSystem.WriteAllText((path & file), value, False)
