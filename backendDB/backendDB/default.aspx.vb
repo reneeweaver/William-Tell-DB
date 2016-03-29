@@ -104,7 +104,7 @@ Public Class _default
             Dim placeholdnum As Integer
 
             placeholdnum = read("inh1")
-            If placeholdnum < 12 Then
+            If placeholdnum > 12 Then
                 inh1 = (placeholdnum - 12)
                 amin1 = False
             Else
@@ -113,7 +113,7 @@ Public Class _default
             End If
 
             placeholdnum = read("inh2")
-            If placeholdnum < 12 Then
+            If placeholdnum > 12 Then
                 inh2 = (placeholdnum - 12)
                 amin2 = False
             Else
@@ -122,7 +122,7 @@ Public Class _default
             End If
 
             placeholdnum = read("inh3")
-            If placeholdnum < 12 Then
+            If placeholdnum > 12 Then
                 inh3 = (placeholdnum - 12)
                 amin3 = False
             Else
@@ -131,7 +131,7 @@ Public Class _default
             End If
 
             placeholdnum = read("inh4")
-            If placeholdnum < 12 Then
+            If placeholdnum > 12 Then
                 inh4 = (placeholdnum - 12)
                 amin4 = False
             Else
@@ -141,7 +141,7 @@ Public Class _default
 
 
             placeholdnum = read("outh1")
-            If placeholdnum < 12 Then
+            If placeholdnum > 12 Then
                 outh1 = (placeholdnum - 12)
                 amout1 = False
             Else
@@ -150,7 +150,7 @@ Public Class _default
             End If
 
             placeholdnum = read("outh2")
-            If placeholdnum < 12 Then
+            If placeholdnum > 12 Then
                 outh2 = (placeholdnum - 12)
                 amout2 = False
             Else
@@ -159,7 +159,7 @@ Public Class _default
             End If
 
             placeholdnum = read("outh3")
-            If placeholdnum < 12 Then
+            If placeholdnum > 12 Then
                 outh3 = (placeholdnum - 12)
                 amout3 = False
             Else
@@ -168,7 +168,7 @@ Public Class _default
             End If
 
             placeholdnum = read("outh4")
-            If placeholdnum < 12 Then
+            If placeholdnum > 12 Then
                 outh4 = (placeholdnum - 12)
                 amout4 = False
             Else
