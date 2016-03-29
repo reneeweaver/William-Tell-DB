@@ -35,25 +35,28 @@ Public Class _default
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'authenticate to page
-        If (Request.Cookies(iitcookiename) IsNot Nothing) Then
-            If (Request.Cookies(iitcookiename)("user") IsNot Nothing) Then
-                usr = Request.Cookies(iitcookiename)("user")
-                Dim token As String
-                If (Request.Cookies(iitcookiename)("token") IsNot Nothing) Then
-                    token = Request.Cookies(iitcookiename)("token")
-                    If Not (token = GetHash(usr & My.Computer.FileSystem.ReadAllText(dbpath & usr & "\passhash.txt") & usr & "asdfghjkl;'")) Then
-                        Response.Redirect("login.aspx")
-                    End If
-                Else
-                    Response.Redirect("login.aspx")
-                End If
-            Else
-                Response.Redirect("login.aspx")
-            End If
-        Else
-            Response.Redirect("login.aspx")
-        End If
-        If Not Request.QueryString("action") = "" Then
+        ' If (Request.Cookies(iitcookiename) IsNot Nothing) Then
+        'If (Request.Cookies(iitcookiename)("user") IsNot Nothing) Then
+        'usr = Request.Cookies(iitcookiename)("user")
+        'Dim token As String
+        'If (Request.Cookies(iitcookiename)("token") IsNot Nothing) Then
+        'token = Request.Cookies(iitcookiename)("token")
+        'If Not (token = GetHash(usr & My.Computer.FileSystem.ReadAllText(dbpath & usr & "\passhash.txt") & usr & "asdfghjkl;'")) Then
+        'Response.Redirect("login.aspx")
+        'End If
+        'Else
+        'Response.Redirect("login.aspx")
+        'End If
+        'Else
+        'Response.Redirect("login.aspx")
+        'End If
+        'Else
+        'Response.Redirect("login.aspx")
+        'End If
+
+
+
+        If Request.QueryString("action") = "pull" Then
             senddata()
         Else
             getdata()
@@ -63,6 +66,7 @@ Public Class _default
 
     End Sub
     Private Sub getdata()
+        MsgBox("get")
         punchdate = Request.QueryString("date")
         inh1 = Request.QueryString("inh1")
         inh2 = Request.QueryString("inh2")
@@ -93,6 +97,7 @@ Public Class _default
         End If
     End Sub
     Private Sub senddata()
+        MsgBox("send")
         Me.TextBox1.Text = "asdfhasjklfdhsadljkfhdslajkf"
         path = (dbpath & usr & "\" & punchdate & "\")
         If My.Computer.FileSystem.DirectoryExists(path) Then
