@@ -54,12 +54,7 @@ Public Class _default
             Response.Redirect("login.aspx")
         End If
         If Not Request.QueryString("action") = "" Then
-            If Request.QueryString("action") = "pull" Then
-                punchdate = Request.QueryString("date")
-                senddata()
-            Else
-                getdata()
-            End If
+            senddata()
         Else
             getdata()
         End If
