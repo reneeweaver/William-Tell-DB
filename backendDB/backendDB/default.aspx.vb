@@ -186,38 +186,6 @@ Public Class _default
             outm3 = read("outm3")
             outm4 = read("outm4")
 
-            Dim datacookie As HttpCookie = New HttpCookie(punchdate)
-            datacookie.Values.Add("inh1", inh1)
-            datacookie.Values.Add("inh2", inh2)
-            datacookie.Values.Add("inh3", inh3)
-            datacookie.Values.Add("inh4", inh4)
-            datacookie.Values.Add("inm1", inm1)
-            datacookie.Values.Add("inm2", inm2)
-            datacookie.Values.Add("inm3", inm3)
-            datacookie.Values.Add("inm4", inm4)
-            datacookie.Values.Add("inam1", amin1)
-            datacookie.Values.Add("inam2", amin2)
-            datacookie.Values.Add("inam3", amin3)
-            datacookie.Values.Add("inam4", amin4)
-            datacookie.Values.Add("outh1", outh1)
-            datacookie.Values.Add("outh2", outh2)
-            datacookie.Values.Add("outh3", outh3)
-            datacookie.Values.Add("outh4", outh4)
-            datacookie.Values.Add("outm1", outm1)
-            datacookie.Values.Add("outm2", outm2)
-            datacookie.Values.Add("outm3", outm3)
-            datacookie.Values.Add("outm4", outm4)
-            datacookie.Values.Add("outam1", amout1)
-            datacookie.Values.Add("outam2", amout2)
-            datacookie.Values.Add("outam3", amout3)
-            datacookie.Values.Add("outam4", amout4)
-
-
-            datacookie.Domain = (".geekkidconsulting.com")
-            datacookie.Expires = (My.Computer.Clock.LocalTime.AddMinutes(5))
-            Response.Cookies.Add(datacookie)
-            Response.Redirect("http://webhomework.geekkidconsulting.com/iit-timesheet/index.php?date=" & punchdate)
-
         Else
             inh1 = "00"
             inh2 = "00"
@@ -244,6 +212,38 @@ Public Class _default
             amout3 = "True"
             amout4 = "True"
         End If
+
+        Dim datacookie As HttpCookie = New HttpCookie(punchdate)
+        datacookie.Values.Add("inh1", inh1)
+        datacookie.Values.Add("inh2", inh2)
+        datacookie.Values.Add("inh3", inh3)
+        datacookie.Values.Add("inh4", inh4)
+        datacookie.Values.Add("inm1", inm1)
+        datacookie.Values.Add("inm2", inm2)
+        datacookie.Values.Add("inm3", inm3)
+        datacookie.Values.Add("inm4", inm4)
+        datacookie.Values.Add("inam1", amin1)
+        datacookie.Values.Add("inam2", amin2)
+        datacookie.Values.Add("inam3", amin3)
+        datacookie.Values.Add("inam4", amin4)
+        datacookie.Values.Add("outh1", outh1)
+        datacookie.Values.Add("outh2", outh2)
+        datacookie.Values.Add("outh3", outh3)
+        datacookie.Values.Add("outh4", outh4)
+        datacookie.Values.Add("outm1", outm1)
+        datacookie.Values.Add("outm2", outm2)
+        datacookie.Values.Add("outm3", outm3)
+        datacookie.Values.Add("outm4", outm4)
+        datacookie.Values.Add("outam1", amout1)
+        datacookie.Values.Add("outam2", amout2)
+        datacookie.Values.Add("outam3", amout3)
+        datacookie.Values.Add("outam4", amout4)
+
+
+        datacookie.Domain = (".geekkidconsulting.com")
+        datacookie.Expires = (My.Computer.Clock.LocalTime.AddMinutes(5))
+        Response.Cookies.Add(datacookie)
+        Response.Redirect("http://webhomework.geekkidconsulting.com/iit-timesheet/index.php?date=" & punchdate)
     End Sub
     Private Function read(ByVal file As String)
         Return My.Computer.FileSystem.ReadAllText(path & file)
