@@ -55,6 +55,17 @@ Public Class _default
         End If
 
 
+
+        If Request.QueryString("action") = "pull" Then
+            senddata()
+        Else
+            getdata()
+        End If
+
+
+
+    End Sub
+    Private Sub getdata()
         punchdate = Request.QueryString("date")
         inh1 = Request.QueryString("inh1")
         inh2 = Request.QueryString("inh2")
@@ -84,7 +95,157 @@ Public Class _default
             process_save()
         End If
     End Sub
+    Private Sub senddata()
+        path = (dbpath & usr & "\" & punchdate & "\")
+        If My.Computer.FileSystem.DirectoryExists(path) Then
+            Dim placeholdnum As Integer
 
+            placeholdnum = read("inh1")
+            If placeholdnum > 12 Then
+                inh1 = (placeholdnum - 12)
+                amin1 = False
+            Else
+                inh1 = placeholdnum
+                amin1 = True
+            End If
+
+            placeholdnum = read("inh2")
+            If placeholdnum > 12 Then
+                inh2 = (placeholdnum - 12)
+                amin2 = False
+            Else
+                inh2 = placeholdnum
+                amin2 = True
+            End If
+
+            placeholdnum = read("inh3")
+            If placeholdnum > 12 Then
+                inh3 = (placeholdnum - 12)
+                amin3 = False
+            Else
+                inh3 = placeholdnum
+                amin3 = True
+            End If
+
+            placeholdnum = read("inh4")
+            If placeholdnum > 12 Then
+                inh4 = (placeholdnum - 12)
+                amin4 = False
+            Else
+                inh4 = placeholdnum
+                amin4 = True
+            End If
+
+
+            placeholdnum = read("outh1")
+            If placeholdnum > 12 Then
+                outh1 = (placeholdnum - 12)
+                amout1 = False
+            Else
+                outh1 = placeholdnum
+                amout1 = True
+            End If
+
+            placeholdnum = read("outh2")
+            If placeholdnum > 12 Then
+                outh2 = (placeholdnum - 12)
+                amout2 = False
+            Else
+                outh2 = placeholdnum
+                amout2 = True
+            End If
+
+            placeholdnum = read("outh3")
+            If placeholdnum > 12 Then
+                outh3 = (placeholdnum - 12)
+                amout3 = False
+            Else
+                outh3 = placeholdnum
+                amout3 = True
+            End If
+
+            placeholdnum = read("outh4")
+            If placeholdnum > 12 Then
+                outh4 = (placeholdnum - 12)
+                amout4 = False
+            Else
+                outh4 = placeholdnum
+                amout4 = True
+            End If
+
+
+            inm1 = read("inm1")
+            inm2 = read("inm2")
+            inm3 = read("inm3")
+            inm4 = read("inm4")
+
+            outm1 = read("outm1")
+            outm2 = read("outm2")
+            outm3 = read("outm3")
+            outm4 = read("outm4")
+
+        Else
+            inh1 = "00"
+            inh2 = "00"
+            inh3 = "00"
+            inh4 = "00"
+            inm1 = "00"
+            inm2 = "00"
+            inm3 = "00"
+            inm4 = "00"
+            amin1 = "True"
+            amin2 = "True"
+            amin3 = "True"
+            amin4 = "True"
+            outh1 = "00"
+            outh2 = "00"
+            outh3 = "00"
+            outh4 = "00"
+            outm1 = "00"
+            outm2 = "00"
+            outm3 = "00"
+            outm4 = "00"
+            amout1 = "True"
+            amout2 = "True"
+            amout3 = "True"
+            amout4 = "True"
+        End If
+
+        Dim datacookie As HttpCookie = New HttpCookie(punchdate)
+        datacookie.Values.Add("inh1", inh1)
+        datacookie.Values.Add("inh2", inh2)
+        datacookie.Values.Add("inh3", inh3)
+        datacookie.Values.Add("inh4", inh4)
+        datacookie.Values.Add("inm1", inm1)
+        datacookie.Values.Add("inm2", inm2)
+        datacookie.Values.Add("inm3", inm3)
+        datacookie.Values.Add("inm4", inm4)
+        datacookie.Values.Add("inam1", amin1)
+        datacookie.Values.Add("inam2", amin2)
+        datacookie.Values.Add("inam3", amin3)
+        datacookie.Values.Add("inam4", amin4)
+        datacookie.Values.Add("outh1", outh1)
+        datacookie.Values.Add("outh2", outh2)
+        datacookie.Values.Add("outh3", outh3)
+        datacookie.Values.Add("outh4", outh4)
+        datacookie.Values.Add("outm1", outm1)
+        datacookie.Values.Add("outm2", outm2)
+        datacookie.Values.Add("outm3", outm3)
+        datacookie.Values.Add("outm4", outm4)
+        datacookie.Values.Add("outam1", amout1)
+        datacookie.Values.Add("outam2", amout2)
+        datacookie.Values.Add("outam3", amout3)
+        datacookie.Values.Add("outam4", amout4)
+
+
+        datacookie.Domain = (".geekkidconsulting.com")
+        datacookie.Expires = (My.Computer.Clock.LocalTime.AddMinutes(1))
+        Response.Cookies.Add(datacookie)
+        Response.Redirect("http://webhomework.geekkidconsulting.com/iit-timesheet/index.php?date=" & punchdate)
+    End Sub
+    Private Function read(ByVal file As String)
+        Return My.Computer.FileSystem.ReadAllText(path & file)
+    End Function
     Private Function GetHash(ByVal password As String) As String
         Dim sha As New SHA1CryptoServiceProvider
         Dim bytesToHash() As Byte
@@ -112,7 +273,7 @@ Public Class _default
     End Function
     Protected Sub process_save()
         Dim savedate As Date = punchdate
-        path = (dbpath & usr & "\" & savedate.Month & "-" & savedate.Day & "-" & savedate.Year & "\")
+        path = (dbpath & usr & "\" & punchdate & "\")
         If Not My.Computer.FileSystem.DirectoryExists(path) Then
             My.Computer.FileSystem.CreateDirectory(path)
         End If
@@ -193,7 +354,7 @@ Public Class _default
         write("outm2", outm2)
         write("outm3", outm3)
         write("outm4", outm4)
-        Response.Redirect("http://webhomework.geekkidconsulting.com/iit-timesheet?date=" & punchdate)
+        Response.Redirect("default.aspx?action=pull&date=" & punchdate)
     End Sub
     Protected Sub write(ByVal file As String, ByVal value As String)
         My.Computer.FileSystem.WriteAllText((path & file), value, False)
