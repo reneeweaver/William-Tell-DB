@@ -35,24 +35,24 @@ Public Class _default
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'authenticate to page
-        ' If (Request.Cookies(iitcookiename) IsNot Nothing) Then
-        'If (Request.Cookies(iitcookiename)("user") IsNot Nothing) Then
-        'usr = Request.Cookies(iitcookiename)("user")
-        'Dim token As String
-        'If (Request.Cookies(iitcookiename)("token") IsNot Nothing) Then
-        'token = Request.Cookies(iitcookiename)("token")
-        'If Not (token = GetHash(usr & My.Computer.FileSystem.ReadAllText(dbpath & usr & "\passhash.txt") & usr & "asdfghjkl;'")) Then
-        'Response.Redirect("login.aspx")
-        'End If
-        'Else
-        'Response.Redirect("login.aspx")
-        'End If
-        'Else
-        'Response.Redirect("login.aspx")
-        'End If
-        'Else
-        'Response.Redirect("login.aspx")
-        'End If
+        If (Request.Cookies(iitcookiename) IsNot Nothing) Then
+            If (Request.Cookies(iitcookiename)("user") IsNot Nothing) Then
+                usr = Request.Cookies(iitcookiename)("user")
+                Dim token As String
+                If (Request.Cookies(iitcookiename)("token") IsNot Nothing) Then
+                    token = Request.Cookies(iitcookiename)("token")
+                    If Not (token = GetHash(usr & My.Computer.FileSystem.ReadAllText(dbpath & usr & "\passhash.txt") & usr & "asdfghjkl;'")) Then
+                        Response.Redirect("login.aspx")
+                    End If
+                Else
+                    Response.Redirect("login.aspx")
+                End If
+            Else
+                Response.Redirect("login.aspx")
+            End If
+        Else
+            Response.Redirect("login.aspx")
+        End If
 
 
 
