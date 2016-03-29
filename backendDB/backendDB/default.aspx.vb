@@ -55,6 +55,7 @@ Public Class _default
         End If
         If Not request.querystring("action") = "" Then
             If request.querystring("action") = "pull" Then
+                punchdate = request.querystring("date")
                 senddata()
             Else
                 getdata()
@@ -66,7 +67,7 @@ Public Class _default
 
 
     End Sub
-    Private Function getdata()
+    Private Sub getdata()
         punchdate = Request.QueryString("date")
         inh1 = Request.QueryString("inh1")
         inh2 = Request.QueryString("inh2")
@@ -95,10 +96,38 @@ Public Class _default
         If Not punchdate = "" Then
             process_save()
         End If
-    End Function
-    Private Function senddata()
+    End Sub
+    Private Sub senddata()
+        path = (dbpath & usr & "\" & punchdate & "\")
+        If My.Computer.FileSystem.DirectoryExists(path) Then
 
-    End Function
+        Else
+            inh1 = "00"
+            inh2 = "00"
+            inh3 = "00"
+            inh4 = "00"
+            inm1 = "00"
+            inm2 = "00"
+            inm3 = "00"
+            inm4 = "00"
+            amin1 = "True"
+            amin2 = "True"
+            amin3 = "True"
+            amin4 = "True"
+            outh1 = "00"
+            outh2 = "00"
+            outh3 = "00"
+            outh4 = "00"
+            outm1 = "00"
+            outm2 = "00"
+            outm3 = "00"
+            outm4 = "00"
+            amout1 = "True"
+            amout2 = "True"
+            amout3 = "True"
+            amout4 = "True"
+        End If
+    End Sub
     Private Function GetHash(ByVal password As String) As String
         Dim sha As New SHA1CryptoServiceProvider
         Dim bytesToHash() As Byte
