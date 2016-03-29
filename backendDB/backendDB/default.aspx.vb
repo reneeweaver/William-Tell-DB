@@ -53,8 +53,20 @@ Public Class _default
         Else
             Response.Redirect("login.aspx")
         End If
+        If Not request.querystring("action") = "" Then
+            If request.querystring("action") = "pull" Then
+                senddata()
+            Else
+                getdata()
+            End If
+        Else
+            getdata()
+        End If
 
 
+
+    End Sub
+    Private Function getdata()
         punchdate = Request.QueryString("date")
         inh1 = Request.QueryString("inh1")
         inh2 = Request.QueryString("inh2")
@@ -83,8 +95,10 @@ Public Class _default
         If Not punchdate = "" Then
             process_save()
         End If
-    End Sub
+    End Function
+    Private Function senddata()
 
+    End Function
     Private Function GetHash(ByVal password As String) As String
         Dim sha As New SHA1CryptoServiceProvider
         Dim bytesToHash() As Byte
