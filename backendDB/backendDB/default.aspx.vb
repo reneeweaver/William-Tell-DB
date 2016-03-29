@@ -66,7 +66,6 @@ Public Class _default
 
     End Sub
     Private Sub getdata()
-        MsgBox("get")
         punchdate = Request.QueryString("date")
         inh1 = Request.QueryString("inh1")
         inh2 = Request.QueryString("inh2")
@@ -97,8 +96,6 @@ Public Class _default
         End If
     End Sub
     Private Sub senddata()
-        MsgBox("send")
-        Me.TextBox1.Text = "asdfhasjklfdhsadljkfhdslajkf"
         path = (dbpath & usr & "\" & punchdate & "\")
         If My.Computer.FileSystem.DirectoryExists(path) Then
             Dim placeholdnum As Integer
