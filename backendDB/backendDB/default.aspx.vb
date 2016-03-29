@@ -100,6 +100,7 @@ Public Class _default
     Private Sub senddata()
         path = (dbpath & usr & "\" & punchdate & "\")
         If My.Computer.FileSystem.DirectoryExists(path) Then
+            Dim placeholdnum As Integer
 
         Else
             inh1 = "00"
@@ -128,6 +129,9 @@ Public Class _default
             amout4 = "True"
         End If
     End Sub
+    Private Function read(ByVal file As String)
+        Return My.Computer.FileSystem.ReadAllText(path & file)
+    End Function
     Private Function GetHash(ByVal password As String) As String
         Dim sha As New SHA1CryptoServiceProvider
         Dim bytesToHash() As Byte
@@ -155,7 +159,7 @@ Public Class _default
     End Function
     Protected Sub process_save()
         Dim savedate As Date = punchdate
-        path = (dbpath & usr & "\" & savedate.Month & "-" & savedate.Day & "-" & savedate.Year & "\")
+        path = (dbpath & usr & "\" & punchdate & "\")
         If Not My.Computer.FileSystem.DirectoryExists(path) Then
             My.Computer.FileSystem.CreateDirectory(path)
         End If
