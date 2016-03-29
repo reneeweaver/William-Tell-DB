@@ -98,6 +98,7 @@ Public Class _default
         End If
     End Sub
     Private Sub senddata()
+        Me.TextBox1.Text = "asdfhasjklfdhsadljkfhdslajkf"
         path = (dbpath & usr & "\" & punchdate & "\")
         If My.Computer.FileSystem.DirectoryExists(path) Then
             Dim placeholdnum As Integer
