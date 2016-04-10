@@ -9,6 +9,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <div class="logo">
+        <p>Illinois Tech</p>
+        </div>
         <div>
             <p>Please enter your username:</p>
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
