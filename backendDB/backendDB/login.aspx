@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="logo">
-        <p>Illinois Tech</p>
+            <img src="images/IIT_logo_blk.png" alt="IIT logo">
         </div>
         <div>
             <p>Please enter your username:</p>
